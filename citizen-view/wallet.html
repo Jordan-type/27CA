@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Wallet</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Bootstrap Icons CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        .wallet-overview {
+            margin-bottom: 40px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .wallet-overview h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .wallet-balance h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .wallet-balance {
+            margin-bottom: 20px;
+        }
+
+        .receive-funds-btn, .check-eligibility-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .receive-funds-btn:hover, .check-eligibility-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .transaction-history {
+            margin-bottom: 40px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .transaction-history h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .transaction-history ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .transaction-history ul li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .transaction-history ul li i {
+            margin-right: 10px;
+        }
+
+        .transaction-status {
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .transaction-status.true {
+            color: green;
+        }
+
+        .transaction-status.fraud {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Digital Wallet</h1>
+            <nav>
+                <ul>
+                    <li><a href="wallet.html">Digital Wallet</a></li>
+                    <li><a href="services.html">Public Services</a></li>
+                    <li><a href="public-ledger.html">Transparency & Monitoring</a></li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="wallet-overview">
+                <h2>Your Digital Wallet</h2>
+                <div class="wallet-balance">
+                    <h3>Wallet Balance: KES 0.00</h3>
+                    <button class="receive-funds-btn">Receive Funds</button>
+                </div>
+                <p>Check your eligibility for available funds and see how you can benefit.</p>
+                <button class="check-eligibility-btn">Check Eligibility</button>
+            </section>
+
+            <section class="transaction-history">
+                <h2>Transaction History</h2>
+                <ul>
+                    <li>
+                        <span>Transaction ID: 12345</span>
+                        <div class="transaction-status true">
+                            <i class="bi bi-check-circle"></i> Valid
+                        </div>
+                    </li>
+                    <li>
+                        <span>Transaction ID: 12346</span>
+                        <div class="transaction-status fraud">
+                            <i class="bi bi-exclamation-triangle"></i> Fraud
+                        </div>
+                    </li>
+                    <li>
+                        <span>Transaction ID: 12347</span>
+                        <div class="transaction-status true">
+                            <i class="bi bi-check-circle"></i> Valid
+                        </div>
+                    </li>
+                    <li>
+                        <span>Transaction ID: 12348</span>
+                        <div class="transaction-status fraud">
+                            <i class="bi bi-exclamation-triangle"></i> Fraud
+                        </div>
+                    </li>
+                    <!-- Additional transactions as needed -->
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Citizen Portal. All Rights Reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

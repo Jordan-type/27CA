@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Government Revenue Sources</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Bootstrap Icons CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        .revenue-sources,
+        .funding-priorities,
+        .allocation-simulation {
+            margin-bottom: 40px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .revenue-sources h2,
+        .funding-priorities h2,
+        .allocation-simulation h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .revenue-sources ul,
+        .funding-priorities ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .revenue-sources ul li,
+        .funding-priorities ul li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .revenue-sources ul li i,
+        .funding-priorities ul li i {
+            margin-right: 10px;
+            color: #007bff;
+        }
+
+        .allocation-simulation select,
+        .allocation-simulation button {
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 20px;
+        }
+
+        .allocation-simulation button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .allocation-simulation button:hover {
+            background-color: #0056b3;
+        }
+
+        .allocation-results {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .allocation-results h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .allocation-results ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .allocation-results ul li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .allocation-results ul li i {
+            margin-right: 10px;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Government Revenue Sources</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="budget-allocation.html">Budget Allocation Tool</a></li>
+                    <li><a href="tax-optimization.html">Tax Optimization Tool</a></li>
+                    <li><a href="ai-fraud-detection.html">AI Fraud Detection</a></li>
+                    <li><a href="public-ledger.html">Public Ledger</a></li>
+                    <li><a href="settings-and-account-management.html">Settings & Account Management</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Revenue Sources Section -->
+            <section class="revenue-sources">
+                <h2>Primary Sources of Government Revenue</h2>
+                <ul>
+                    <li><i class="bi bi-cash-stack"></i><strong>Taxes:</strong> Income tax, corporate tax, sales tax, VAT, etc. (Total: KES 100 Billion)</li>
+                    <li><i class="bi bi-file-earmark-text"></i><strong>Bills and Bonds:</strong> Government-issued securities (Total: KES 50 Billion)</li>
+                    <li><i class="bi bi-bank"></i><strong>Debts:</strong> Loans from international institutions (Total: KES 80 Billion)</li>
+                    <li><i class="bi bi-globe"></i><strong>Grants:</strong> Financial aid from foreign entities (Total: KES 40 Billion)</li>
+                    <li><i class="bi bi-receipt-cutoff"></i><strong>Fees and Fines:</strong> Revenue from services and penalties (Total: KES 20 Billion)</li>
+                    <li><i class="bi bi-droplet"></i><strong>Natural Resources:</strong> Income from natural resource extraction (Total: KES 70 Billion)</li>
+                    <li><i class="bi bi-building"></i><strong>Privatization:</strong> Revenue from the sale of government assets (Total: KES 30 Billion)</li>
+                    <li><i class="bi bi-send"></i><strong>Remittances:</strong> Money sent home by Kenyans abroad (Total: KES 60 Billion)</li>
+                </ul>
+            </section>
+
+            <!-- Funding Priorities Section -->
+            <section class="funding-priorities">
+                <h2>Prioritization of Funding Sources</h2>
+                <p>Based on strategic goals, revenue from these sources should be allocated as follows:</p>
+                <ul>
+                    <li><i class="bi bi-gear"></i><strong>Infrastructure Development:</strong> Prioritize funding from Taxes and Bills/Bonds.</li>
+                    <li><i class="bi bi-heart-pulse"></i><strong>Healthcare:</strong> Use Grants and Natural Resource revenue.</li>
+                    <li><i class="bi bi-book"></i><strong>Education:</strong> Allocate funds from Taxes and Fees/Fines.</li>
+                    <li><i class="bi bi-people-fill"></i><strong>Social Services:</strong> Direct revenue from Debts and Grants.</li>
+                    <li><i class="bi bi-shield-lock"></i><strong>Defense:</strong> Utilize revenue from Privatization and Natural Resources.</li>
+                </ul>
+            </section>
+
+            <!-- Allocation Simulation Section -->
+            <section class="allocation-simulation">
+                <h2>Simulation of Funding Allocation and Impact</h2>
+                <p>Select a funding source and see its simulated impact on various sectors:</p>
+                <select id="fundingSource">
+                    <option value="taxes">Taxes</option>
+                    <option value="bonds">Bills and Bonds</option>
+                    <option value="debts">Debts</option>
+                    <option value="grants">Grants</option>
+                    <option value="fees">Fees and Fines</option>
+                    <option value="resources">Natural Resources</option>
+                    <option value="privatization">Privatization</option>
+                    <option value="remittances">Remittances</option>
+                </select>
+                <button onclick="simulateImpact()">Run Simulation</button>
+
+                <div class="allocation-results">
+                    <h3>Simulation Results:</h3>
+                    <ul id="simulationResults">
+                        <!-- Results will be populated here dynamically -->
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        function simulateImpact() {
+            const fundingSource = document.getElementById('fundingSource').value;
+            const results = document.getElementById('simulationResults');
+            results.innerHTML = ''; // Clear previous results
+
+            const impacts = {
+                taxes: [
+                    'Infrastructure Development: High positive impact.',
+                    'Healthcare: Moderate positive impact.',
+                    'Education: High positive impact.',
+                    'Social Services: Moderate positive impact.',
+                    'Defense: Low positive impact.'
+                ],
+                bonds: [
+                    'Infrastructure Development: High positive impact.',
+                    'Healthcare: Low positive impact.',
+                    'Education: Low positive impact.',
+                    'Social Services: Low positive impact.',
+                    'Defense: Moderate positive impact.'
+                ],
+                debts: [
+                    'Infrastructure Development: Moderate positive impact.',
+                    'Healthcare: High positive impact.',
+                    'Education: Moderate positive impact.',
+                    'Social Services: High positive impact.',
+                    'Defense: Low positive impact.'
+                ],
+                grants: [
+                    'Infrastructure Development: Low positive impact.',
+                    'Healthcare: High positive impact.',
+                    'Education: Low positive impact.',
+                    'Social Services: High positive impact.',
+                    'Defense: Low positive impact.'
+                ],
+                fees: [
+                    'Infrastructure Development: Moderate positive impact.',
+                    'Healthcare: Low positive impact.',
+                    'Education: High positive impact.',
+                    'Social Services: Low positive impact.',
+                    'Defense: Low positive impact.'
+                ],
+                resources: [
+                    'Infrastructure Development: High positive impact.',
+                    'Healthcare: Moderate positive impact.',
+                    'Education: Low positive impact.',
+                    'Social Services: Low positive impact.',
+                    'Defense: High positive impact.'
+                ],
+                privatization: [
+                    'Infrastructure Development: Low positive impact.',
+                    'Healthcare: Low positive impact.',
+                    'Education: Low positive impact.',
+                    'Social Services: Low positive impact.',
+                    'Defense: High positive impact.'
+                ],
+                remittances: [
+                    'Infrastructure Development: Moderate positive impact.',
+                    'Healthcare: High positive impact.',
+                    'Education: High positive impact.',
+                    'Social Services: Moderate positive impact.',
+                    'Defense: Low positive impact.'
+                ]
+            };
+
+            impacts[fundingSource].forEach(impact => {
+                const li = document.createElement('li');
+                li.innerHTML = `<i class="bi bi-arrow-right-circle"></i>${impact}`;
+                results.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Allocation Tool</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .interactive-map,
+        .scenario-planning,
+        .budget-simulation,
+        .population-analysis,
+        .specific-recommendations,
+        .recommendations,
+        .simulation-results {
+            margin-bottom: 40px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .scenario-planning div,
+        .budget-simulation div,
+        .population-analysis div {
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .simulation-results h3 {
+            margin-top: 30px;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .simulation-results ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .simulation-results ul li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .simulation-results ul li i {
+            margin-right: 10px;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Budget Allocation Tool</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="budget-allocation.html">Budget Allocation Tool</a></li>
+                    <li><a href="revenue-sources.html">Revenue Sources</a></li>
+                    <li><a href="ai-fraud-detection.html">AI Fraud Detection</a></li>
+                    <li><a href="public-ledger.html">Public Ledger</a></li>
+                    <li><a href="settings-and-account-management.html">Settings & Account Management</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="interactive-map">
+                <h2>Budget Allocation by Region</h2>
+                <div id="map"></div> <!-- Placeholder for the interactive map -->
+            </section>
+
+            <section class="scenario-planning">
+                <h2>Scenario Planning</h2>
+                <div>
+                    <label for="healthBudget">Health Sector Budget:</label>
+                    <input type="range" id="healthBudget" name="healthBudget" min="1000000" max="100000000" value="50000000">
+                </div>
+                <div>
+                    <label for="educationBudget">Education Sector Budget:</label>
+                    <input type="range" id="educationBudget" name="educationBudget" min="1000000" max="100000000" value="50000000">
+                </div>
+                <button onclick="runSimulation()">Run Simulation</button>
+            </section>
+
+            <section class="simulation-results" id="simulationResults">
+                <h3>Simulation Results:</h3>
+                <ul id="resultsList">
+                    <!-- Scenario results will be dynamically inserted here -->
+                </ul>
+            </section>
+
+            <section class="population-analysis">
+                <h2>Population-Based Analysis</h2>
+                <p>Analyze how budget changes impact different population segments.</p>
+                <div>
+                    <label for="region">Select Region:</label>
+                    <select id="region">
+                        <option value="national">National</option>
+                        <option value="urban">Urban</option>
+                        <option value="rural">Rural</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="populationGroup">Select Population Group:</label>
+                    <select id="populationGroup">
+                        <option value="children">Children</option>
+                        <option value="elderly">Elderly</option>
+                        <option value="general">General Population</option>
+                    </select>
+                </div>
+                <button>Analyze Impact</button>
+            </section>
+
+            <section class="specific-recommendations">
+                <h2>Specific Department Recommendations</h2>
+                <p>Based on the analysis, we recommend adjusting the budget for the following departments within education:</p>
+                <ul>
+                    <li><strong>Primary Education:</strong> Increase funding by 10% to address rising enrollment rates.</li>
+                    <li><strong>Special Education:</strong> Allocate more resources to improve accessibility and support.</li>
+                    <!-- Add more recommendations as needed -->
+                </ul>
+            </section>
+
+            <section class="recommendations">
+                <h2>AI-Driven Recommendations</h2>
+                <ul>
+                    <li>Increase education budget by 10% to improve literacy rates.</li>
+                    <li>Reduce administrative costs by 5% to allocate more funds to healthcare.</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        function runSimulation() {
+            const healthBudget = document.getElementById('healthBudget').value;
+            const educationBudget = document.getElementById('educationBudget').value;
+            const resultsList = document.getElementById('resultsList');
+
+            resultsList.innerHTML = ''; // Clear previous results
+
+            let scenarioResults = [];
+
+            if (healthBudget > 70000000 && educationBudget < 30000000) {
+                scenarioResults.push('Increased health funding will improve public health outcomes by 15%, but education sector might see a drop in enrollment by 5%.');
+            } else if (educationBudget > 70000000 && healthBudget < 30000000) {
+                scenarioResults.push('Increased education funding will boost literacy rates by 10%, but public health services might be strained.');
+            } else if (healthBudget > 50000000 && educationBudget > 50000000) {
+                scenarioResults.push('Balanced funding across health and education will sustain current growth rates in both sectors.');
+            } else {
+                scenarioResults.push('Low funding in both sectors might lead to a decrease in service quality.');
+            }
+
+            scenarioResults.forEach(result => {
+                const li = document.createElement('li');
+                li.innerHTML = `<i class="bi bi-arrow-right-circle"></i>${result}`;
+                resultsList.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>

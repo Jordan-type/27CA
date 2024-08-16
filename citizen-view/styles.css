@@ -1,0 +1,194 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #007bff;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    background-color: #007bff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #0056b3;
+}
+
+main {
+    margin-bottom: 40px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 10px 0;
+    background-color: #007bff;
+    color: white;
+    border-radius: 0 0 8px 8px;
+}
+
+/* Section Styles */
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    margin-bottom: 15px;
+}
+
+/* Digital Wallet Styles */
+.wallet-overview {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.wallet-balance h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.transaction-history ul {
+    margin-top: 20px;
+}
+
+.transaction-history li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Public Services Styles */
+.service-list .service {
+    margin-bottom: 30px;
+}
+
+.service-list .service h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.service-list .service p {
+    margin-bottom: 15px;
+}
+
+/* Public Ledger Styles */
+.public-ledger ul li {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.public-ledger .feedback-btn {
+    display: block;
+    margin: 20px auto;
+}
+
+/* Community Page Styles */
+.community-engagement {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.forums ul {
+    margin-top: 20px;
+}
+
+.forums ul li {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+}
+
+.forums ul li a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.forums ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Resources Page Styles */
+.resources-list ul {
+    margin-top: 20px;
+}
+
+.resources-list ul li {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.faqs ul {
+    margin-top: 20px;
+}
+
+.faqs ul li {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}

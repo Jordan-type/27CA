@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public Ledger and Transparency Portal - Government View</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .transaction-viewer,
+        .search-filter,
+        .citizen-feedback,
+        .public-access-dashboard,
+        .detailed-reports {
+            margin-bottom: 40px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .transaction-viewer ul,
+        .detailed-reports ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .transaction-viewer ul li,
+        .detailed-reports ul li {
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: #555;
+        }
+
+        .search-filter input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .citizen-feedback textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .citizen-feedback button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .citizen-feedback button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <!-- Include Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Public Ledger and Transparency Portal - Government View</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="budget-allocation.html">Budget Allocation Tool</a></li>
+                    <li><a href="revenue-sources.html">Revenue Sources</a></li>
+                    <li><a href="ai-fraud-detection.html">AI Fraud Detection</a></li>
+                    <li><a href="public-ledger.html">Public Ledger</a></li>
+                    <li><a href="settings-and-account-management.html">Settings & Account Management</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Blockchain Transaction Viewer -->
+            <section class="transaction-viewer">
+                <h2>Blockchain Transaction Viewer</h2>
+                <ul>
+                    <li>Health sector - $200,000 - Allocated</li>
+                    <li>Education sector - $150,000 - Spent</li>
+                    <li>Infrastructure sector - $250,000 - Allocated</li>
+                    <li>Social Services - $100,000 - Spent</li>
+                </ul>
+            </section>
+
+            <!-- Search & Filter Transactions -->
+            <section class="search-filter">
+                <h2>Search & Filter Transactions</h2>
+                <input type="text" placeholder="Search by department, region, or expenditure type...">
+            </section>
+
+            <!-- Citizen Feedback & Insights (For Government Review) -->
+            <section class="citizen-feedback">
+                <h2>Citizen Feedback & Insights</h2>
+                <textarea placeholder="Review citizen feedback..."></textarea>
+                <button>Analyze Feedback</button>
+            </section>
+
+            <!-- Public Access Dashboard -->
+            <section class="public-access-dashboard">
+                <h2>Public Access Dashboard</h2>
+                <p>Overview of fund allocations and spending. Monitor how funds are being distributed and used across various sectors.</p>
+                <canvas id="publicDashboardChart"></canvas> <!-- Placeholder for public access dashboard chart -->
+            </section>
+
+            <!-- Detailed Reports & Analytics -->
+            <section class="detailed-reports">
+                <h2>Detailed Reports & Analytics</h2>
+                <ul>
+                    <li><a href="#">Monthly Expenditure Report - Health Sector</a></li>
+                    <li><a href="#">Quarterly Budget Allocation - Education Sector</a></li>
+                    <li><a href="#">Annual Audit Report - Infrastructure Projects</a></li>
+                    <li><a href="#">Citizen Feedback Analysis - Social Services</a></li>
+                </ul>
+            </section>
+        </main>
+
+        <script>
+            var ctx = document.getElementById('publicDashboardChart').getContext('2d');
+            var publicDashboardChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ['Health', 'Education', 'Infrastructure', 'Social Services'],
+                    datasets: [{
+                        label: 'Fund Allocation',
+                        data: [200000, 150000, 250000, 100000],
+                        backgroundColor: ['rgba(75, 192, 192, 0.6)', 'rgba(153, 102, 255, 0.6)', 'rgba(255, 159, 64, 0.6)', 'rgba(255, 99, 132, 0.6)'],
+                    }]
+                }
+            });
+        </script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings & Account Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Settings & Account Management</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="budget-allocation.html">Budget Allocation Tool</a></li>
+                    <li><a href="revenue-sources.html">Revenue Sources</a></li>
+                    <li><a href="tax-optimization.html">Tax Optimization Tool</a></li>
+                    <li><a href="ai-fraud-detection.html">AI Fraud Detection</a></li>
+                    <li><a href="public-ledger.html">Public Ledger</a></li>
+                    <li><a href="settings-and-account-management.html">Settings & Account Management</a></li>
+                </ul>
+            </nav>
+            <input type="search" placeholder="Search settings...">
+        </header>
+
+        <main>
+            <section class="roles-permissions">
+                <h2>User Roles & Permissions</h2>
+                <div class="role-management">
+                    <select>
+                        <option value="admin">Admin</option>
+                        <option value="editor">Editor</option>
+                        <option value="viewer">Viewer</option>
+                    </select>
+                    <div class="permissions-grid">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Resource</th>
+                                    <th>View</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>User Data</td>
+                                    <td><input type="checkbox"></td>
+                                    <td><input type="checkbox"></td>
+                                    <td><input type="checkbox"></td>
+                                </tr>
+                                <tr>
+                                    <td>AI Models</td>
+                                    <td><input type="checkbox"></td>
+                                    <td><input type="checkbox"></td>
+                                    <td><input type="checkbox"></td>
+                                </tr>
+                                <!-- More rows as needed -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="role-actions">
+                        <button>Create New Role</button>
+                        <button>Edit Role</button>
+                        <button>Delete Role</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="system-configuration">
+                <h2>System Configuration</h2>
+
+                <div class="configuration-section">
+                    <h3>AI Models</h3>
+                    <ul>
+                        <li><strong>Revenue Forecasting Model:</strong> Predicts future government revenues using historical tax data and economic indicators. <button>Settings</button></li>
+                        <li><strong>Tax Compliance & Evasion Detection Model:</strong> Identifies patterns of tax evasion among taxpayers. <button>Settings</button></li>
+                        <li><strong>Budget Allocation Optimization Model:</strong> Suggests optimal budget allocations across sectors to maximize impact. <button>Settings</button></li>
+                        <li><strong>Debt Management and Optimization Model:</strong> Manages the government's debt portfolio and minimizes interest costs. <button>Settings</button></li>
+                        <li><strong>Public Sentiment Analysis Model:</strong> Analyzes public opinion on government policies using social media and survey data. <button>Settings</button></li>
+                        <li><strong>Fraud Detection Model:</strong> Detects fraudulent activities in public spending and tax collection. <button>Settings</button></li>
+                    </ul>
+                    <button>Add New Model</button>
+                </div>
+
+                <div class="configuration-section">
+                    <h3>Data Sources</h3>
+                    <ul>
+                        <li><strong>Kenya Revenue Authority (KRA):</strong> Tax records, customs data, and taxpayer information. <button>Settings</button></li>
+                        <li><strong>Central Bank of Kenya (CBK):</strong> Economic indicators, interest rates, and foreign exchange data. <button>Settings</button></li>
+                        <li><strong>Kenyan National Bureau of Statistics (KNBS):</strong> GDP data, demographic data, and employment statistics. <button>Settings</button></li>
+                        <li><strong>Ministry of Finance and Planning:</strong> Historical budget allocations and fiscal policies. <button>Settings</button></li>
+                        <li><strong>International Monetary Fund (IMF) & World Bank:</strong> Economic reports, debt data, and global economic indicators. <button>Settings</button></li>
+                        <li><strong>Social Media Platforms & News Outlets:</strong> Public opinion and sentiment data. <button>Settings</button></li>
+                        <li><strong>Government Procurement Portal:</strong> Procurement records and contractor information. <button>Settings</button></li>
+                    </ul>
+                    <button>Add Data Source</button>
+                </div>
+
+                <div class="configuration-section">
+                    <h3>General System Settings</h3>
+                    <button>Configure</button>
+                </div>
+            </section>
+
+            <section class="notification-settings">
+                <h2>Notification Settings</h2>
+                <div class="notification-preferences">
+                    <div>
+                        <label>Email Notifications</label>
+                        <input type="checkbox">
+                    </div>
+                    <div>
+                        <label>SMS Notifications</label>
+                        <input type="checkbox">
+                    </div>
+                    <div>
+                        <label>In-App Notifications</label>
+                        <input type="checkbox">
+                    </div>
+                    <button>Test Notification</button>
+                </div>
+            </section>
+
+            <section class="support-help">
+                <h2>Support & Help</h2>
+                <div class="support-section">
+                    <h3>Documentation</h3>
+                    <input type="search" placeholder="Search documentation...">
+                    <ul>
+                        <li>Topic 1</li>
+                        <li>Topic 2</li>
+                        <!-- More topics as needed -->
+                    </ul>
+                    <a href="#">View Full Documentation</a>
+                </div>
+                <div class="support-section">
+                    <h3>FAQs</h3>
+                    <input type="search" placeholder="Search FAQs...">
+                    <ul>
+                        <li>FAQ 1</li>
+                        <li>FAQ 2</li>
+                        <!-- More FAQs as needed -->
+                    </ul>
+                </div>
+                <div class="support-section">
+                    <h3>Support Channels</h3>
+                    <button>Live Chat</button>
+                    <button>Email Support</button>
+                    <button>Phone Support</button>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

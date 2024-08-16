@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Fraud Detection</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .fraud-alerts,
+        .fraud-risk-chart,
+        .transaction-details,
+        .audit-trail {
+            margin-bottom: 40px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .fraud-alerts ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .fraud-alerts ul li {
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: #555;
+        }
+
+        .fraud-risk-chart {
+            text-align: center;
+        }
+
+        .transaction-details table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .transaction-details th,
+        .transaction-details td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .audit-trail p {
+            font-size: 18px;
+            color: #555;
+        }
+    </style>
+    <!-- Include Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Fraud Detection</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="budget-allocation.html">Budget Allocation Tool</a></li>
+                    <li><a href="revenue-sources.html">Revenue Sources</a></li>
+                    <li><a href="ai-fraud-detection.html">AI Fraud Detection</a></li>
+                    <li><a href="public-ledger.html">Public Ledger</a></li>
+                    <li><a href="settings-and-account-management.html">Settings & Account Management</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="fraud-alerts">
+                <h2>Fraud Alerts</h2>
+                <ul>
+                    <li>High-risk transaction detected in the Transport sector.</li>
+                    <li>Potential fraud in the Infrastructure project.</li>
+                </ul>
+            </section>
+
+            <section class="fraud-risk-chart">
+                <h2>Fraud Risk Distribution by Sector</h2>
+                <canvas id="fraudRiskChart"></canvas> <!-- Placeholder for pie chart -->
+            </section>
+
+            <section class="transaction-details">
+                <h2>Detailed Transaction View</h2>
+                <table>
+                    <tr>
+                        <th>Transaction ID</th>
+                        <th>Sector</th>
+                        <th>Amount</th>
+                        <th>Risk Score</th>
+                    </tr>
+                    <tr>
+                        <td>123456</td>
+                        <td>Transport</td>
+                        <td>$500,000</td>
+                        <td>High</td>
+                    </tr>
+                    <!-- Add more transactions as needed -->
+                </table>
+            </section>
+
+            <section class="audit-trail">
+                <h2>Audit Trail Viewer</h2>
+                <p>Transaction ID 123456 - Review completed by Finance Department</p>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Data for the fraud risk pie chart
+        const data = {
+            labels: ['Transport', 'Infrastructure', 'Healthcare', 'Education', 'Social Services'],
+            datasets: [{
+                data: [25, 35, 15, 10, 15], // Example risk percentage distribution
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.7)',
+                    'rgba(54, 162, 235, 0.7)',
+                    'rgba(255, 206, 86, 0.7)',
+                    'rgba(75, 192, 192, 0.7)',
+                    'rgba(153, 102, 255, 0.7)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)'
+                ],
+                borderWidth: 1
+            }]
+        };
+
+        // Configuration options for the chart
+        const config = {
+            type: 'pie',
+            data: data,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(tooltipItem) {
+                                return tooltipItem.label + ': ' + tooltipItem.raw + '%';
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        // Render the pie chart
+        const fraudRiskChart = new Chart(
+            document.getElementById('fraudRiskChart'),
+            config
+        );
+    </script>
+</body>
+</html>

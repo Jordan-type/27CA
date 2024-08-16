@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Government Fintech Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Government Fintech Dashboard</h1>
+            <nav>
+                <ul>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="budget-allocation.html">Budget Allocation</a></li>
+                    <li><a href="tax-optimization.html">Tax Optimization</a></li>
+                    <li><a href="analytics.html">Analytics</a></li>
+                    <li><a href="reports.html">Reports</a></li>
+                    <li><a href="settings-and-account-management.html">Settings</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="summary-cards">
+                <div class="card">
+                    <h2>GDP Growth Rate</h2>
+                    <p>4.5%</p>
+                </div>
+                <div class="card">
+                    <h2>Budget Utilization</h2>
+                    <p>78%</p>
+                </div>
+                <div class="card">
+                    <h2>Tax Revenue</h2>
+                    <p>$3.2 Billion</p>
+                </div>
+            </section>
+
+            <section class="data-visualization">
+                <h2>Trends in Budget Allocation</h2>
+                <canvas id="budgetChart"></canvas>
+            </section>
+
+            <section class="prediction-comparison">
+                <h2>AI Predictions & Comparisons</h2>
+                <canvas id="predictionChart"></canvas>
+                <p>The graph above shows the predicted budget allocations based on AI analysis, compared against actual historical data. This helps in forecasting future budget trends and optimizing tax strategies for maximum revenue generation and efficient budget utilization.</p>
+            </section>
+
+            <section class="alerts">
+                <h2>Alerts & Notifications</h2>
+                <ul>
+                    <li>Budget deadline approaching for Health sector.</li>
+                    <li>Flagged transaction detected in Education sector.</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctxBudget = document.getElementById('budgetChart').getContext('2d');
+        var budgetChart = new Chart(ctxBudget, {
+            type: 'line',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May'],
+                datasets: [{
+                    label: 'Budget Allocation',
+                    data: [12, 19, 3, 5, 2],
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    fill: false
+                }]
+            }
+        });
+
+        var ctxPrediction = document.getElementById('predictionChart').getContext('2d');
+        var predictionChart = new Chart(ctxPrediction, {
+            type: 'line',
+            data: {
+                labels: ['June', 'July', 'August', 'September', 'October'],
+                datasets: [{
+                    label: 'Predicted Budget Allocation',
+                    data: [3, 4, 6, 8, 10],
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    fill: false
+                }, {
+                    label: 'Actual Budget Allocation',
+                    data: [5, 6, 7, 8, 9],
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    fill: false
+                }]
+            }
+        });
+    </script>
+</body>
+</html>
