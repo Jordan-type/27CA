@@ -16,6 +16,7 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
 
         .sector-overview h3 {
@@ -162,6 +163,101 @@
             margin-right: 10px;
             color: #007bff;
         }
+
+        .ai-impact {
+            margin-bottom: 40px;
+            background-color: #ffefef;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.1);
+        }
+
+        .ai-impact h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #b30000;
+        }
+
+        .ai-impact p {
+            color: #b30000;
+            margin-bottom: 20px;
+        }
+
+        .ai-impact ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .ai-impact ul li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .ai-impact ul li i {
+            margin-right: 10px;
+            color: #b30000;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 10px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+
+        .modal button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .modal button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -207,6 +303,31 @@
                 </div>
             </section>
 
+            <!-- AI-Generated Economic Impact Section -->
+            <section class="ai-impact">
+                <h3>AI-Generated Economic Impact of Scandals</h3>
+                <p>Explore how past corruption scandals have impacted Kenya's economy, jobs, and various sectors.</p>
+                <ul>
+                    <li><i class="bi bi-graph-down"></i><strong>Job Losses:</strong> Estimated 200,000 jobs lost due to the Kenya Power Scandal (2017-2020).</li>
+                    <li><i class="bi bi-piggy-bank"></i><strong>Economic Growth:</strong> GDP growth reduced by 1.5% due to the Eurobond Scandal (2014).</li>
+                    <li><i class="bi bi-exclamation-triangle"></i><strong>Sectoral Impact:</strong> Healthcare services declined by 10% following the Afya House Scandal (2016).</li>
+                    <li><i class="bi bi-house"></i><strong>Infrastructure Projects:</strong> Delayed infrastructure projects worth Ksh 50 billion due to the Dams Scandal (2019).</li>
+                </ul>
+                <canvas id="scandalImpactChart"></canvas>
+            </section>
+
+            <!-- Actionable Steps for Citizens -->
+            <section class="actionable-steps">
+                <h3>Actions Citizens Should Take to Ensure Proper Fund Allocation</h3>
+                <ul>
+                    <li><i class="bi bi-exclamation-triangle"></i><strong>Report Mismanagement:</strong> Citizens should report any signs of fund mismanagement to authorities and watchdog organizations.</li>
+                    <li><i class="bi bi-person-lines-fill"></i><strong>Participate in Community Audits:</strong> Engage in local audits and monitoring activities to ensure funds are spent as intended.</li>
+                    <li><i class="bi bi-chat-dots"></i><strong>Provide Feedback:</strong> Actively use platforms to provide feedback on government projects and spending.</li>
+                    <li><i class="bi bi-megaphone"></i><strong>Advocate for Transparency:</strong> Demand transparency in all stages of budgeting and expenditure by government bodies.</li>
+                    <li><i class="bi bi-file-earmark-check"></i><strong>Support Prosecution:</strong> Back the prosecution of officials involved in corruption to deter future mismanagement.</li>
+                </ul>
+            </section>
+
             <!-- Health Sector Overview -->
             <section class="sector-overview">
                 <h3>Health Sector</h3>
@@ -224,7 +345,7 @@
                 <div class="feedback-section">
                     <h4>Give Your Feedback</h4>
                     <textarea placeholder="Share your thoughts or report any issues..."></textarea>
-                    <button>Submit Feedback</button>
+                    <button onclick="openModal('healthTipModal')">Submit Feedback</button>
                 </div>
             </section>
 
@@ -245,7 +366,7 @@
                 <div class="feedback-section">
                     <h4>Give Your Feedback</h4>
                     <textarea placeholder="Share your thoughts or report any issues..."></textarea>
-                    <button>Submit Feedback</button>
+                    <button onclick="openModal('educationTipModal')">Submit Feedback</button>
                 </div>
             </section>
 
@@ -266,7 +387,7 @@
                 <div class="feedback-section">
                     <h4>Give Your Feedback</h4>
                     <textarea placeholder="Share your thoughts or report any issues..."></textarea>
-                    <button>Submit Feedback</button>
+                    <button onclick="openModal('infrastructureTipModal')">Submit Feedback</button>
                 </div>
             </section>
         </main>
@@ -274,6 +395,36 @@
         <footer>
             <p>&copy; 2024 GPAccess. All Rights Reserved.</p>
         </footer>
+    </div>
+
+    <!-- Modal for Health Sector -->
+    <div id="healthTipModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('healthTipModal')">&times;</span>
+            <h3>Submit an Anonymous Tip - Health Sector</h3>
+            <textarea placeholder="Enter your anonymous tip regarding the health sector..."></textarea>
+            <button>Submit Tip</button>
+        </div>
+    </div>
+
+    <!-- Modal for Education Sector -->
+    <div id="educationTipModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('educationTipModal')">&times;</span>
+            <h3>Submit an Anonymous Tip - Education Sector</h3>
+            <textarea placeholder="Enter your anonymous tip regarding the education sector..."></textarea>
+            <button>Submit Tip</button>
+        </div>
+    </div>
+
+    <!-- Modal for Infrastructure Sector -->
+    <div id="infrastructureTipModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('infrastructureTipModal')">&times;</span>
+            <h3>Submit an Anonymous Tip - Infrastructure Sector</h3>
+            <textarea placeholder="Enter your anonymous tip regarding the infrastructure sector..."></textarea>
+            <button>Submit Tip</button>
+        </div>
     </div>
 
     <script>
@@ -315,6 +466,63 @@
             }
         });
 
+        var ctxScandalImpact = document.getElementById('scandalImpactChart').getContext('2d');
+        var scandalImpactChart = new Chart(ctxScandalImpact, {
+            type: 'bar',
+            data: {
+                labels: ['Kenya Power Scandal', 'Eurobond Scandal', 'Afya House Scandal', 'Dams Scandal'],
+                datasets: [{
+                    label: 'Job Losses (in thousands)',
+                    data: [200, 150, 100, 80],
+                    backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    fill: false,
+                    yAxisID: 'jobs'
+                }, {
+                    label: 'GDP Impact (in %)',
+                    data: [-2.0, -1.5, -1.0, -0.5],
+                    backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    fill: false,
+                    type: 'line',
+                    yAxisID: 'gdp'
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        id: 'jobs',
+                        type: 'linear',
+                        position: 'left',
+                        ticks: {
+                            beginAtZero: true,
+                            callback: function(value) {
+                                return value + 'k';
+                            }
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Job Losses'
+                        }
+                    }, {
+                        id: 'gdp',
+                        type: 'linear',
+                        position: 'right',
+                        ticks: {
+                            beginAtZero: true,
+                            callback: function(value) {
+                                return value + '%';
+                            }
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'GDP Impact'
+                        }
+                    }]
+                }
+            }
+        });
+
         function simulatePolicy() {
             var policy = document.getElementById('policySelect').value;
             var impactList = document.getElementById('impactList');
@@ -348,6 +556,20 @@
                 li.innerHTML = '<i class="bi bi-info-circle"></i>' + impact;
                 impactList.appendChild(li);
             });
+        }
+
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target.className === 'modal') {
+                event.target.style.display = 'none';
+            }
         }
     </script>
 </body>
